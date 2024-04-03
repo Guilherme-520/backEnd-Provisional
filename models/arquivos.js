@@ -21,11 +21,9 @@ const evento = db.sequelize.define("arquivos",{
         type: db.Sequelize.TEXT
     },
     tipoUsuario:{
-        //Lista de apoiadores
         type: db.Sequelize.STRING
     },
     area:{
-        //Evento publico ou privadoa
         type: db.Sequelize.STRING
     },
     modArquivo:{
@@ -35,7 +33,6 @@ const evento = db.sequelize.define("arquivos",{
         type: db.Sequelize.BLOB
     },
     plusArquivo:{
-        //tipo do evento: remoto, hibrido ou presencial
         type: db.Sequelize.BLOB
     },
 })
