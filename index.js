@@ -8,6 +8,12 @@ app.use(cors())
 const org = require('./routes/organizador')
 app.use("/organizador",org)
 
+const arquivos = require('./routes/arquivos')
+app.use("/arquivos", arquivos)
+
+const atividades = require('./routes/atividades')
+app.use("/atividades", atividades)
+
 const evento = require('./routes/evento')
 app.use("/evento", evento)
 

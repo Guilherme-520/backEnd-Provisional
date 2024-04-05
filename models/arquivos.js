@@ -1,6 +1,6 @@
 const db = require('./index');
 
-const evento = db.sequelize.define("arquivos",{
+const arquivos = db.sequelize.define("arquivos",{
     tipoArquivo:{
         type: db.Sequelize.STRING
     },

@@ -1,20 +1,20 @@
 const express = require('express');
 const router = express.Router();
-const evento = require('../models/evento')
+const atividades = require('../models/atividades')
 
 router.get('/', async (req, res) => {
-    const eve = await evento.findAll();
-    res.json(eve)
+    const ati = await atividades.findAll();
+    res.json(ati)
 });
 
 router.post("/", async (req, res) => {
-    const eve = req.body;
+    const ati = req.body;
     try {
-        const novo = await evento.create(eve)
+        const novo = await atividades.create(ati)
         res.json(novo);
     } catch (error) {
         console.error(error);
-        res.status(500).json({ error: 'Erro ao criar Evento '+ error.message });
+        res.status(500).json({ error: 'Erro ao criar atividades '+ error.message });
     }
 });
 
