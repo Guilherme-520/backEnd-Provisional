@@ -38,6 +38,38 @@ const evento = db.sequelize.define("evento",{
         //tipo do evento: remoto, hibrido ou presencial
         type: db.Sequelize.STRING
     },
+    cep :{
+        type: db.Sequelize.STRING
+    },
+    cidade :{
+        type: db.Sequelize.STRING
+    },
+    estado :{
+        type: db.Sequelize.STRING
+    },
+    local :{
+        type: db.Sequelize.STRING
+    },
+    dataIni :{
+        //data de inicio do evento
+        type: db.Sequelize.DATE
+    },
+    dataFim :{
+        //data do fim do evento
+        type: db.Sequelize.DATE
+    },
+    horarioIni :{
+        //horario de inicio do evento
+        type: db.Sequelize.TIME
+    },
+    horarioFim :{
+        //horario do fim do evento
+        type: db.Sequelize.TIME
+    },
+    periodo :{
+        //periodo do evento: manhã, tarde ou noite
+        type: db.Sequelize.STRING
+    }
 })
 
 module.exports = evento;
