@@ -10,9 +10,6 @@ const editorchefe = db.sequelize.define("editorchefe", {
     senha:{
         type: db.Sequelize.STRING
     },
-    CPF:{
-        type: db.Sequelize.STRING
-    },
     instituicao:{
         type: db.Sequelize.STRING
     },

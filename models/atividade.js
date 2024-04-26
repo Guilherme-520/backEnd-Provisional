@@ -1,6 +1,6 @@
 const db = require("./index")
 
-const atividades = db.sequelize.define("atividades", {
+const atividade = db.sequelize.define("atividade", {
     titulo:{
         type: db.Sequelize.STRING
     },
@@ -24,4 +24,4 @@ const atividades = db.sequelize.define("atividades", {
     }  
 })
 
-module.exports = atividades
+module.exports = atividade

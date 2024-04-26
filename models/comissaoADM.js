@@ -10,9 +10,6 @@ const comissaoAdm = db.sequelize.define("comissaoAdm",{
     senha :{
         type: db.Sequelize.STRING
     },
-    cpf:{
-        type: db.Sequelize.STRING
-    },
     instituicao:{
         type: db.Sequelize.STRING
     },

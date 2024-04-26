@@ -11,8 +11,8 @@ app.use("/organizador",org)
 const arquivos = require('./routes/arquivos')
 app.use("/arquivos", arquivos)
 
-const atividades = require('./routes/atividades')
-app.use("/atividades", atividades)
+const atividades = require('./routes/atividade')
+app.use("/atividade", atividades)
 
 const evento = require('./routes/evento')
 app.use("/evento", evento)

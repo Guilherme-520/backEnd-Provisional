@@ -33,13 +33,13 @@ router.put("/:id", async(req, res)=>{
   const novosDados = req.body;
 
   try {
-    const editorChefeAtualizado = await editorChefe.update(novosDados, {
+    const edct = await editorChefe.update(novosDados, {
       where: {
         id: id,
       },
     });
 
-    if (editorChefeAtualizado[0] === 1) {
+    if (edct[0] === 1) {
       res.json({ message: 'editorChefe atualizado com sucesso.' });
     } else {
       res.status(404).json({ error: 'editorChefe não encontrado.' });
