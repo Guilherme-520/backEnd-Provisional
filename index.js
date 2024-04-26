@@ -29,6 +29,18 @@ const comissaoADM = require('./routes/comissaoADM')
 app.use("/comissaoADM", comissaoADM)
 app.use("/comissaoADM/:id", comissaoADM)
 
+const editorChefe = require('./routes/editorChefe')
+app.use("/editorChefe", editorChefe)
+app.use("/editorChefe/:id", editorChefe)
+
+const convidado = require('./routes/convidado')
+app.use("/convidado", convidado)
+app.use("/convidado/:id", convidado)
+
+const usuario = require('./routes/usuario')
+app.use("/usuario", usuario)
+app.use("/usuario/:id", usuario)
+
 
 db.sequelize.sync().then(()=>{
     app.listen(3001,()=>{
