@@ -1,5 +1,6 @@
 const db = require('./index');
 
+<<<<<<< HEAD
 const arquivos = db.sequelize.define("Arquivos",{
     idTipoArquivo:{
         type: db.Sequelize.INTEGER
@@ -34,7 +35,35 @@ const arquivos = db.sequelize.define("Arquivos",{
     },
     Apresentacao:{
         type: db.Sequelize.BOOLEAN
+=======
+const arquivos = db.sequelize.define("Arquivo",{
+    
+    InicioSubmissao:{
+        type: db.Sequelize.DATE
+    },
+    
+    FinalSubmissao:{
+        type: db.Sequelize.DATE
+    },
+    InicioAvaliacao:{
+        type: db.Sequelize.DATE
+    },
+    FinalAvaliacao:{
+        type: db.Sequelize.DATE
+    },
+    NormasPublicacao:{
+        type: db.Sequelize.STRING
+    },
+    ModeloArquivo:{
+        type: db.Sequelize.BLOB
+    },
+    ModeloApresentacao:{
+        type: db.Sequelize.BLOB
+    },
+    Apresentacao:{
+        type: db.Sequelize.Boolean
+>>>>>>> e6a7e32269bf2f9a3bd95790bd0ad2805cc0f48a
     }
 })
 
-module.exports = arquivos;
+module.exports = Arquivo;
