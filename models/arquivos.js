@@ -1,40 +1,40 @@
 const db = require('./index');
 
-const arquivos = db.sequelize.define("arquivos",{
-    tipoArquivo:{
+const arquivos = db.sequelize.define("Arquivos",{
+    idTipoArquivo:{
+        type: db.Sequelize.INTEGER
+    },
+    idEvento:{
+        type: db.Sequelize.INTEGER
+    },
+    InicioSubmissao :{
         type: db.Sequelize.STRING
     },
-    dataIniSub:{
-        type: db.Sequelize.DATE
+    FinalSubmissao :{
+        type: db.Sequelize.STRING
+    },
+    InicioAvaliacao :{
+        type: db.Sequelize.STRING
+    },
+    FinalAvaliacao :{
+        type: db.Sequelize.STRING
+    },
+    NormasPublicacao :{
+        type: db.Sequelize.STRING
+    },
+    FinalSubmissao :{
+        type: db.Sequelize.STRING
     },
     
-    dataFinSub:{
-        type: db.Sequelize.DATE
-    },
-    dataIniAva:{
-        type: db.Sequelize.DATE
-    },
-    dataFinAva:{
-        type: db.Sequelize.DATE
-    },
-    normas:{
-        type: db.Sequelize.TEXT
-    },
-    tipoUsuario:{
+    ModeloArquivo:{
         type: db.Sequelize.STRING
     },
-    area:{
+    ModeloApresentacao:{
         type: db.Sequelize.STRING
     },
-    modArquivo:{
-        type: db.Sequelize.BLOB
-    },
-    modApresentacao:{
-        type: db.Sequelize.BLOB
-    },
-    plusArquivo:{
-        type: db.Sequelize.BLOB
-    },
+    Apresentacao:{
+        type: db.Sequelize.BOOLEAN
+    }
 })
 
 module.exports = arquivos;
