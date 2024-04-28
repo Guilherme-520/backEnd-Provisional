@@ -1,5 +1,5 @@
 const Sequelize = require("sequelize")
-const sequelize = new Sequelize("eventow", "root", "", {
+const sequelize = new Sequelize("Eventec", "root", "", {
     host: "localhost",
     dialect: "mysql"
 })

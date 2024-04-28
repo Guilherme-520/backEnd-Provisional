@@ -1,9 +1,17 @@
 const express = require('express')
-const app = express()
-const db = require('./models')
-const cors = require('cors')
+const app     = express()
+const db      = require('./models')
+const cors    = require('cors')
+const path    = require('path');
+
 app.use(express.json())
 app.use(cors())
+
+app.use("/uploads", express.static('uploads'));
+
+// http://localhost:3001/public/dall-e-2.webp
+
+
 //Rotas
 const org = require('./routes/organizador')
 app.use("/organizador",org)

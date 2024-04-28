@@ -1,6 +1,6 @@
 const db = require("./index")
 
-const editorchefe = db.sequelize.define("editorchefe", {
+const editorchefe = db.sequelize.define("EditorChefe", {
     nome:{
         type: db.Sequelize.STRING
     },
