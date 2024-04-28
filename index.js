@@ -41,6 +41,20 @@ const usuario = require('./routes/usuario')
 app.use("/usuario", usuario)
 app.use("/usuario/:id", usuario)
 
+const instituicao = require('./routes/instuicao')
+app.use("/instituicao", instituicao)
+
+const presencial = require('./routes/presencial')
+app.use("/presencial", presencial)
+
+const subareas = require('./routes/subareas')
+app.use("/subareas", subareas)
+
+const tipoArquivo = require('./routes/tipoArquivo')
+app.use("/tipoArquivo", tipoArquivo)
+
+const userProfile = require('./routes/userProfile')
+app.use("/userProfile", userProfile)
 
 db.sequelize.sync().then(()=>{
     app.listen(3001,()=>{

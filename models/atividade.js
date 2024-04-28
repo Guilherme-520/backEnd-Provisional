@@ -1,27 +1,18 @@
 const db = require("./index")
 
-const atividade = db.sequelize.define("atividade", {
-    titulo:{
+const Atividades = db.sequelize.define("Atividades", {
+    Titulo:{
         type: db.Sequelize.STRING
     },
-    descricao:{
+    Descricao:{
         type: db.Sequelize.STRING
     },
-    tipo:{
+    Dia:{
         type: db.Sequelize.STRING
     },
-    dia:{
-        type: db.Sequelize.STRING
-    },
-    nome:{
-        type: db.Sequelize.STRING
-    },
-    email:{
-        type: db.Sequelize.STRING
-    },
-    horario:{
+    Horario:{
         type: db.Sequelize.STRING
     }  
 })
 
-module.exports = atividade
+module.exports = Atividades
