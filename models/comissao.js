@@ -1,6 +1,6 @@
 const db = require('./index');
 
-const comissao = db.sequelize.define("comissao",{
+const comissao = db.sequelize.define("Comissao",{
     nome:{
         //nome da comissao
         type: db.Sequelize.STRING

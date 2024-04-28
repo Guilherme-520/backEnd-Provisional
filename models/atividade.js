@@ -1,6 +1,6 @@
 const db = require("./index")
 
-const atividade = db.sequelize.define("atividade", {
+const atividade = db.sequelize.define("Atividade", {
     titulo:{
         type: db.Sequelize.STRING
     },
