@@ -1,6 +1,6 @@
 const db = require("./index")
 
-const Instituicao = db.sequelize.define("Instituicao", {
+const Instituicoes = db.sequelize.define("Instituicoes", {
     Nome:{
         type: db.Sequelize.STRING
     },
@@ -10,4 +10,4 @@ const Instituicao = db.sequelize.define("Instituicao", {
 })
 
 
-module.exports = Instituicao
+module.exports = Instituicoes

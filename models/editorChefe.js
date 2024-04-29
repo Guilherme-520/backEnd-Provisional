@@ -1,25 +1,19 @@
 const db = require("./index")
 
-const editorchefe = db.sequelize.define("EditorChefe", {
-    nome:{
+const Editorchefes = db.sequelize.define("EditorChefes", {
+    LinkLattes:{
         type: db.Sequelize.STRING
     },
-    email:{
+    Status:{
         type: db.Sequelize.STRING
     },
-    senha:{
-        type: db.Sequelize.STRING
+    idInstituicao:{
+        type: db.Sequelize.INTEGER
     },
-    instituicao:{
-        type: db.Sequelize.STRING
-    },
-    linksLattes:{
-        type: db.Sequelize.STRING
-    },
-    status:{
-        type: db.Sequelize.STRING
+    idUserProfile:{
+        type: db.Sequelize.INTEGER
     }
 })
 
 
-module.exports = editorchefe
+module.exports = Editorchefes

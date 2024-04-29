@@ -13,9 +13,6 @@ app.use("/uploads", express.static('uploads'));
 
 
 //Rotas
-const org = require('./routes/organizador')
-app.use("/organizador",org)
-
 const arquivos = require('./routes/arquivos')
 app.use("/arquivos", arquivos)
 
@@ -33,10 +30,6 @@ const comissao = require('./routes/comissao')
 app.use("/comissao", comissao)
 app.use("/comissao/:id", comissao)
 
-const comissaoADM = require('./routes/comissaoADM')
-app.use("/comissaoADM", comissaoADM)
-app.use("/comissaoADM/:id", comissaoADM)
-
 const editorChefe = require('./routes/editorChefe')
 app.use("/editorChefe", editorChefe)
 app.use("/editorChefe/:id", editorChefe)
@@ -45,21 +38,14 @@ const convidado = require('./routes/convidado')
 app.use("/convidado", convidado)
 app.use("/convidado/:id", convidado)
 
-const usuario = require('./routes/usuario')
-app.use("/usuario", usuario)
-app.use("/usuario/:id", usuario)
-
 const instituicao = require('./routes/instuicao')
 app.use("/instituicao", instituicao)
 
 const presencial = require('./routes/presencial')
 app.use("/presencial", presencial)
 
-const subareas = require('./routes/subareas')
-app.use("/subareas", subareas)
-
-const tipoArquivo = require('./routes/tipoArquivo')
-app.use("/tipoArquivo", tipoArquivo)
+const subAreas = require('./routes/subAreas')
+app.use("/subAreas", subAreas)
 
 const userProfile = require('./routes/userProfile')
 app.use("/userProfile", userProfile)

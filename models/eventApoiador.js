@@ -1,13 +1,13 @@
 const db = require("./index")
 
-const editorchefe = db.sequelize.define("editorchefe", {
+const EventApoiadores = db.sequelize.define("EventApoiadores", {
     idEvento:{
-        type: db.Sequelize.STRING
+        type: db.Sequelize.INTEGER
     },
     idApoiador:{
-        type: db.Sequelize.STRING
+        type: db.Sequelize.INTEGER
     }
 })
 
 
-module.exports = editorchefe
+module.exports = EventApoiadores

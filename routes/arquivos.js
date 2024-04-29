@@ -2,7 +2,7 @@ const express  = require('express');
 const router   = express.Router();
 const arquivos = require('../models/arquivos');
 const { json, where, Op } = require('sequelize');
-const tipoArquivo = require('../models/tipoArquivo')
+const tipoArquivos = require('../models/tipoArquivo')
 
 function slugify(string) {
     return string
@@ -34,17 +34,17 @@ router.post('/', upload.fields([
     { name: 'ModeloApresentacao'}
 ]),async (req,res)=>{
     const tipo = {
-        NomeTipoArquivo:    req.body.NomeTipoArquivo,
+        NomeTipoArquivos:    req.body.NomeTipoArquivos,
         DescricaoArquivo:   req.body.DescricaoArquivo,
     }
 
 
     try {
 
-        const verificarTipo = await tipoArquivo.findAll({
+        const verificarTipo = await tipoArquivos.findAll({
             where:{
                 Nome:{
-                    [Op.like]: `%${req.body.NomeTipoArquivo}%`
+                    [Op.like]: `%${req.body.NomeTipoArquivos}%`
                 }
             }
         })
@@ -52,7 +52,7 @@ router.post('/', upload.fields([
         return verificarTipo;
 
         
-        const novoTipo = await tipoArquivo.create(tipo)
+        const novoTipo = await tipoArquivos.create(tipo)
 
         
     } catch (error) {
@@ -61,7 +61,7 @@ router.post('/', upload.fields([
     const data = {
         
         idEvento:           req.body.idEvento,
-        idTipoArquivo:      req.body.idTipoArquivo,
+        idTipoArquivos:      req.body.idTipoArquivos,
         InicioSubmissao:    req.body.InicioSubmissao,
         FinalSubmissao:     req.body.FinalSubmissao,
         InicioAvaliacao:    req.body.InicioAvaliacao,

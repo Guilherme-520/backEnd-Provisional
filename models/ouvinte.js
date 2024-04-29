@@ -1,23 +1,23 @@
 
 const db = require("./index")
 
-const ouvinte = db.sequelize.define("ouvinte", {
-    nome:{
+const Ouvintes = db.sequelize.define("Ouvintes", {
+    Curso:{
         type: db.Sequelize.STRING
     },
-    email:{
+    Curso:{
         type: db.Sequelize.STRING
     },
-    senha:{
-        type: db.Sequelize.STRING
+    Presenca:{
+        type: db.Sequelize.INTEGER
     },
-    instituicao:{
-        type: db.Sequelize.STRING
+    idUserProfile:{
+        type: db.Sequelize.INTEGER
     },
-    funcao:{
-        type: db.Sequelize.STRING
+    idInstituicao:{
+        type: db.Sequelize.INTEGER
     }
 })
 
 
-module.exports = ouvinte
+module.exports = Ouvintes

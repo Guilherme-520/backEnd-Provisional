@@ -1,6 +1,6 @@
 const db = require("./index")
 
-const apoiadores = db.sequelize.define("Apoiadores",{
+const Apoiadores = db.sequelize.define("Apoiadores",{
     Nome:{
        
         type: db.Sequelize.STRING
@@ -8,4 +8,4 @@ const apoiadores = db.sequelize.define("Apoiadores",{
   
 })
 
-module.exports = apoiadores;
+module.exports = Apoiadores;

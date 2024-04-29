@@ -1,6 +1,6 @@
 const db = require('./index');
 
-const evento = db.sequelize.define("evento",{
+const Eventos = db.sequelize.define("Eventos",{
     nomeADM:{
         type: db.Sequelize.STRING
     },
@@ -8,10 +8,10 @@ const evento = db.sequelize.define("evento",{
         type: db.Sequelize.STRING
     },
     
-    nomeEvento:{
+    nomeEventos:{
         type: db.Sequelize.STRING
     },
-    emailEvento:{
+    emailEventos:{
         type: db.Sequelize.STRING
     },
     assunto:{
@@ -25,7 +25,7 @@ const evento = db.sequelize.define("evento",{
         type: db.Sequelize.STRING
     },
     visibilidade:{
-        //Evento publico ou privado
+        //Eventos publico ou privado
         type: db.Sequelize.STRING
     },
     anais:{
@@ -35,7 +35,7 @@ const evento = db.sequelize.define("evento",{
         type: db.Sequelize.STRING
     },
     rhp:{
-        //tipo do evento: remoto, hibrido ou presencial
+        //tipo do Eventos: remoto, hibrido ou presencial
         type: db.Sequelize.STRING
     },
     cep :{
@@ -51,25 +51,25 @@ const evento = db.sequelize.define("evento",{
         type: db.Sequelize.STRING
     },
     dataIni :{
-        //data de inicio do evento
+        //data de inicio do Eventos
         type: db.Sequelize.DATE
     },
     dataFim :{
-        //data do fim do evento
+        //data do fim do Eventos
         type: db.Sequelize.DATE
     },
     horarioIni :{
-        //horario de inicio do evento
+        //horario de inicio do Eventos
         type: db.Sequelize.TIME
     },
     horarioFim :{
-        //horario do fim do evento
+        //horario do fim do Eventos
         type: db.Sequelize.TIME
     },
     periodo :{
-        //periodo do evento: manhã, tarde ou noite
+        //periodo do Eventos: manhã, tarde ou noite
         type: db.Sequelize.STRING
     }
 })
 
-module.exports = evento;
+module.exports = Eventos;

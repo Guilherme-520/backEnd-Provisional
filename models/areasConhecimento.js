@@ -1,6 +1,6 @@
 const db = require("./index")
 
-const areaConhecimento = db.sequelize.define("AreaConhecimento",{
+const AreaConhecimentos = db.sequelize.define("AreaConhecimentos",{
     Nome:{
         type: db.Sequelize.STRING
     },
@@ -11,4 +11,4 @@ const areaConhecimento = db.sequelize.define("AreaConhecimento",{
 });
 
 
-module.exports = areaConhecimento;
+module.exports = AreaConhecimentos;

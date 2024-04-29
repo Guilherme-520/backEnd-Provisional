@@ -1,6 +1,6 @@
 const db = require("./index")
 
-const tipoArquivo = db.sequelize.define("TipoArquivos", {
+const tipoArquivos = db.sequelize.define("TipoArquivos", {
     Nome:{
         type: db.Sequelize.STRING
     },
@@ -10,4 +10,4 @@ const tipoArquivo = db.sequelize.define("TipoArquivos", {
 })
 
 
-module.exports = tipoArquivo;
+module.exports = tipoArquivos;

@@ -1,16 +1,16 @@
 const express = require('express');
 const router = express.Router();
-const EventApoiador = require('../models/EventApoiador')
+const EventApoiadores = require('../models/eventApoiador');
 
 router.get('/', async (req, res) => {
-    const evapd = await EventApoiador.findAll();
+    const evapd = await EventApoiadores.findAll();
     res.json(evapd)
 });
 
 router.post("/", async (req, res) => {
     const evapd = req.body;
     try {
-        const novo = await EventApoiador.create(evapd)
+        const novo = await EventApoiadores.create(evapd)
         res.json(novo);
     } catch (error) {
         console.error(error);

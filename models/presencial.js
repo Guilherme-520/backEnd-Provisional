@@ -1,6 +1,6 @@
 const db = require("./index")
 
-const Presencial = db.sequelize.define("Presencial", {
+const Presenciais = db.sequelize.define("Presenciais", {
     Cep:{
         type: db.Sequelize.STRING
     },
@@ -19,4 +19,4 @@ const Presencial = db.sequelize.define("Presencial", {
 })
 
 
-module.exports = Presencial
+module.exports = Presenciais

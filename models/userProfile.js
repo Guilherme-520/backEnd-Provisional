@@ -1,6 +1,6 @@
 const db = require("./index")
 
-const UserProfile = db.sequelize.define("UserProfile", {
+const UserProfiles = db.sequelize.define("UserProfiles", {
     Nome:{
         type: db.Sequelize.STRING
     },
@@ -16,4 +16,4 @@ const UserProfile = db.sequelize.define("UserProfile", {
 })
 
 
-module.exports = UserProfile
+module.exports = UserProfiles

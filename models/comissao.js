@@ -1,41 +1,36 @@
 const db = require('./index');
 
-const comissao = db.sequelize.define("Comissao",{
-    nome:{
-        //nome da comissao
+const Comissoes = db.sequelize.define("Comissoes", {
+    LinkLattes: {
+        //nome da Comissoes
         type: db.Sequelize.STRING
     },
-    email:{
-        //email da comissao
+    Periodo: {
+        //email da Comissoes
         type: db.Sequelize.STRING
     },
-    //emailADM:{
-        //email do Adminstrador
-    //    type: db.Sequelize.STRING
-    //},
-    //senhaADM:{
-        //senha do Adminstrador
-    //    type: db.Sequelize.STRING
-    //},
-    instituicao:{
-        //instituicao da comissao
+    Status: {
+        //instituicao da Comissoes
         type: db.Sequelize.STRING
     },
-    areaConhecimento:{
-        //aréas de conhecimento da comissao
-        type: db.Sequelize.STRING
+    Organizador: {
+        //aréas de conhecimento da Comissoes
+        type: db.Sequelize.INTEGER
     },
-    turno:{
-        type: db.Sequelize.STRING
+    Chair: {
+        type: db.Sequelize.INTEGER
     },
-    linkLattes:{
+    idUserProfile: {
         //link de curriculo
-        type: db.Sequelize.STRING
+        type: db.Sequelize.INTEGER
     },
-    funcao:{
-        //funcao da comissao: chair, organizador ou avaliador
-        type: db.Sequelize.STRING
+    idEvento: {
+        //funcao da Comissoes: chair, organizador ou avaliador
+        type: db.Sequelize.INTEGER
     },
+    idInstituicao: {
+        type: db.Sequelize.INTEGER
+    }
 })
 
-module.exports = comissao;
+module.exports = Comissoes;

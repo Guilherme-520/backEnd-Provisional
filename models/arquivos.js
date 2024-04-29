@@ -1,6 +1,6 @@
 const db = require('./index');
 
-const arquivos = db.sequelize.define("Arquivos",{
+const Arquivos = db.sequelize.define("Arquivos",{
     idTipoArquivo:{
         type: db.Sequelize.INTEGER
     },
@@ -38,4 +38,4 @@ const arquivos = db.sequelize.define("Arquivos",{
     }
 })
 
-module.exports = arquivos;
+module.exports = Arquivos;

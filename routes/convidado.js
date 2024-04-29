@@ -1,29 +1,29 @@
 const express = require('express')
 const router = express.Router()
-const convidado = require('../models/convidado');
+const Convidados = require('../models/convidado');
 
 
 router.get('/', async (req, res) => {
-  const convidados = await convidado.findAll();
-  res.json(convidados)
+  const Convidadoss = await Convidados.findAll();
+  res.json(Convidadoss)
 })
 
 
 router.get('/:id', async (req, res) => {
   const id = req.params.id;
-  const convidados = await convidado.findByPk(id);
-  res.json(convidados)
+  const Convidadoss = await Convidados.findByPk(id);
+  res.json(Convidadoss)
 })
 
 router.post("/", async (req, res) => {
   const novo = req.body
 
   try {
-    const novoConvidado = await convidado.create(novo)
-    res.json(novoConvidado)
+    const novoConvidados = await Convidados.create(novo)
+    res.json(novoConvidados)
   } catch (error) {
     console.error(error);
-    res.status(500).json({ error: 'Erro ao cadastrar convidado ' + error.message });
+    res.status(500).json({ error: 'Erro ao cadastrar Convidados ' + error.message });
   }
 })
 
@@ -33,21 +33,21 @@ router.put("/:id", async (req, res) => {
   const novosDados = req.body;
 
   try {
-    const convidadoAtualizado = await convidado.update(novosDados, {
+    const ConvidadosAtualizado = await Convidados.update(novosDados, {
       where: {
         id: id,
       },
     });
 
     
-    if (convidadoAtualizado[0] === 1) {
-      res.json({ message: 'Convidado atualizado com sucesso.' });
+    if (ConvidadosAtualizado[0] === 1) {
+      res.json({ message: 'Convidados atualizado com sucesso.' });
     } else {
-      res.status(404).json({ error: 'Convidado não encontrado.' });
+      res.status(404).json({ error: 'Convidados não encontrado.' });
     }
   } catch (error) {
     console.error(error);
-    res.status(500).json({ error: 'Erro ao atualizar convidado ' + error.message });
+    res.status(500).json({ error: 'Erro ao atualizar Convidados ' + error.message });
   }
 })
 

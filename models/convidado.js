@@ -1,22 +1,19 @@
 const db = require("./index")
 
-const convidado = db.sequelize.define("convidado", {
-    nome:{
+const Convidados = db.sequelize.define("Convidados", {
+    Funcao:{
         type: db.Sequelize.STRING
     },
-    email:{
+    idUserProfile:{
+        type: db.Sequelize.INTEGER
+    },
+    TempoNecesario:{
         type: db.Sequelize.STRING
     },
-    senha:{
-        type: db.Sequelize.STRING
-    },
-    CPF:{
-        type: db.Sequelize.STRING
-    },
-    funcao:{
+    Periodo:{
         type: db.Sequelize.STRING
     }
 })
 
 
-module.exports = convidado
+module.exports = Convidados
