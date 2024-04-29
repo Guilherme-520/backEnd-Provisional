@@ -22,6 +22,9 @@ app.use("/atividade", atividades)
 const evento = require('./routes/evento')
 app.use("/evento", evento)
 
+const eventApoiador = require('./routes/eventApoiador')
+app.use("/eventApoiador", eventApoiador)
+
 const ouvinte = require('./routes/ouvinte')
 app.use("/ouvinte", ouvinte)
 app.use("/ouvinte/:id", ouvinte)
