@@ -30,72 +30,37 @@ router.get('/', async (req, res) => {
 });
 
 router.post('/', upload.fields([
-    { name: 'ModeloArquivo'},
+    { name: 'ModeloArquivos'},
     { name: 'ModeloApresentacao'}
 ]),async (req,res)=>{
-    const tipo = {
-        NomeTipoArquivos:    req.body.NomeTipoArquivos,
-        DescricaoArquivo:   req.body.DescricaoArquivo,
-    }
-
-
-    try {
-
-        const verificarTipo = await tipoArquivos.findAll({
-            where:{
-                Nome:{
-                    [Op.like]: `%${req.body.NomeTipoArquivos}%`
-                }
-            }
-        })
-
-        return verificarTipo;
-
-        
-        const novoTipo = await tipoArquivos.create(tipo)
-
-        
-    } catch (error) {
-        
-    }
+    const dados = req.body
     const data = {
         
         idEvento:           req.body.idEvento,
         idTipoArquivos:      req.body.idTipoArquivos,
-        InicioSubmissao:    req.body.InicioSubmissao,
-        FinalSubmissao:     req.body.FinalSubmissao,
+        InicioSubmisao:    req.body.InicioSubmisao,
+        FinalSubmisao:     req.body.FinalSubmisao,
         InicioAvaliacao:    req.body.InicioAvaliacao,
         FinalAvaliacao:     req.body.FinalAvaliacao,
         NormasPublicacao:   req.body.NormasPublicacao,
-        ModeloArquivo:      req.files.ModeloArquivo[0].path,
+        ModeloArquivos:      req.files.ModeloArquivos[0].path,
         ModeloApresentacao: req.files.ModeloApresentacao[0].path,
         Apresentacao:       req.body.Apresentacao,
     }
 
-    try {
-        console.log(data)
-        const novo = await arquivos.create(data)
+    res.json(data)
 
-        console.log(novo)
+    // try {
+    //     console.log(data)
+    //     const novo = await arquivos.create(data)
 
-        res.status(200).json("ok")
-    } catch (error) {
-        console.error(error);
-        res.status(500).json({ error: 'Erro ao criar arquivos '+ error.message });
-    }
+    //     console.log(novo)
+
+    //     res.status(200).json("ok")
+    // } catch (error) {
+    //     console.error(error);
+    //     res.status(500).json({ error: 'Erro ao criar arquivos '+ error.message });
+    // }
 })
-
-// router.post("/", async (req, res) => {
-//     const arquivo = req.body;
-//     res.json(req.body)
-//     console.log(req)
-//     // try {
-//     //     const novo = await arquivos.create(arquivo)
-//     //     res.json(arquivo);
-//     // } catch (error) {
-//     //     console.error(error);
-//     //     res.status(500).json({ error: 'Erro ao criar arquivos '+ error.message });
-//     // }
-// });
 
 module.exports = router;

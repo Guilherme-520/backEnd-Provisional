@@ -1,6 +1,10 @@
 const db = require("./index")
 
 const UserProfiles = db.sequelize.define("UserProfiles", {
+    idUserProfile:{
+        type: db.Sequelize.INTEGER,
+        primaryKey: true
+    },
     Nome:{
         type: db.Sequelize.STRING
     },

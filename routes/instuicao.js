@@ -9,8 +9,11 @@ router.get('/', async (req, res) => {
 
 router.post("/", async (req, res) => {
     const inst = req.body;
+    console.log(inst)
     try {
+        console.log(inst)
         const novo = await Instituicoes.create(inst)
+        console.log(novo)
         res.json(novo);
     } catch (error) {
         console.error(error);

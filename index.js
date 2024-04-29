@@ -16,6 +16,9 @@ app.use("/uploads", express.static('uploads'));
 const arquivos = require('./routes/arquivos')
 app.use("/arquivos", arquivos)
 
+const tipoArquivo = require('./routes/tipoArquivo')
+app.use("/tipoArquivo", tipoArquivo)
+
 const atividades = require('./routes/atividade')
 app.use("/atividade", atividades)
 

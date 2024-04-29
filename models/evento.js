@@ -1,74 +1,64 @@
+const { FOREIGNKEYS } = require('sequelize/lib/query-types');
 const db = require('./index');
 
 const Eventos = db.sequelize.define("Eventos",{
-    nomeADM:{
+    idEvento:{
+        type: db.Sequelize.INTEGER,
+        primaryKey: true
+    },
+    Nome:{
         type: db.Sequelize.STRING
     },
-    emailADM:{
+    Descricao:{
         type: db.Sequelize.STRING
     },
-    
-    nomeEventos:{
+    AsuntoPrincipal:{
         type: db.Sequelize.STRING
     },
-    emailEventos:{
+    EmailEventos:{
         type: db.Sequelize.STRING
     },
-    assunto:{
+    Datainicio :{
         type: db.Sequelize.STRING
     },
-    descricao:{
+    DataFinal :{
         type: db.Sequelize.STRING
     },
-    apoiador:{
-        //Lista de apoiadores
+    HorarioInicio :{
         type: db.Sequelize.STRING
     },
-    visibilidade:{
-        //Eventos publico ou privado
+    HorarioFinal :{
         type: db.Sequelize.STRING
     },
-    anais:{
+    Manha:{
+        type: db.Sequelize.BOOLEAN
+    },
+    Tarde:{  
+        type: db.Sequelize.BOOLEAN
+    },
+    Noite:{
+        type: db.Sequelize.BOOLEAN
+    },
+    Status :{
         type: db.Sequelize.STRING
     },
-    certificados:{
+    Publico :{
+        type: db.Sequelize.BOOLEAN
+    },
+    Formato :{
         type: db.Sequelize.STRING
     },
-    rhp:{
-        //tipo do Eventos: remoto, hibrido ou presencial
+    Proceedings :{
+        type: db.Sequelize.BOOLEAN
+    },
+    Certificados :{
+        type: db.Sequelize.BOOLEAN
+    },
+    Logo :{
         type: db.Sequelize.STRING
     },
-    cep :{
-        type: db.Sequelize.STRING
-    },
-    cidade :{
-        type: db.Sequelize.STRING
-    },
-    estado :{
-        type: db.Sequelize.STRING
-    },
-    local :{
-        type: db.Sequelize.STRING
-    },
-    dataIni :{
-        //data de inicio do Eventos
-        type: db.Sequelize.DATE
-    },
-    dataFim :{
-        //data do fim do Eventos
-        type: db.Sequelize.DATE
-    },
-    horarioIni :{
-        //horario de inicio do Eventos
-        type: db.Sequelize.TIME
-    },
-    horarioFim :{
-        //horario do fim do Eventos
-        type: db.Sequelize.TIME
-    },
-    periodo :{
-        //periodo do Eventos: manhã, tarde ou noite
-        type: db.Sequelize.STRING
+    idEditorChefe:{
+        type: db.Sequelize.INTEGER
     }
 })
 
