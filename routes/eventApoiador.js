@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const EventApoiadores = require('../models/eventApoiador');
+const EventApoiadores = require('../models/EventApoiador');
 
 router.get('/', async (req, res) => {
     const evapd = await EventApoiadores.findAll();

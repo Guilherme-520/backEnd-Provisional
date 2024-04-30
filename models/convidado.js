@@ -1,6 +1,10 @@
 const db = require("./index")
 
 const Convidados = db.sequelize.define("Convidados", {
+    idConvidado:{
+        type: db.Sequelize.INTEGER,
+        primaryKey: true
+    },
     Funcao:{
         type: db.Sequelize.STRING
     },
