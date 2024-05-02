@@ -19,8 +19,12 @@ router.post("/", async (req, res) => {
 
     try {
         const nusrpfl = await UserProfiles.create(Nome, Email, Senha);
-        const ncom = await Convidados.create(TempoNecesario, Periodo, Funcao);
-        res.json(nusrpfl, ncom);
+        if (nusrpfl != null) {
+            const ncom = await Convidados.create(TempoNecesario, Periodo, Funcao)
+            res.json(nusrpfl, ncom)
+        }else{
+            console.error(error)
+        }
     } catch (error) {
         console.error(error);
         res.status(500).json({ error: 'Erro ao cadastrar o convidado '+ error.message });
