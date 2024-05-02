@@ -10,17 +10,22 @@ router.get('/', async (req, res) => {
 });
 
 router.post("/", async (req, res) => {
-    const Nome = req.body.Nome
-    const Email = req.body.Email
-    const Senha = req.body.Senha
-    const TempoNecesario = req.body.TempoNecesario
-    const Periodo = req.body.Periodo
-    const Funcao = req.body.Funcao
-
+    const userData = {
+        nome: req.body.nome,
+        email: req.body.email,
+        senha: req.body.senha
+    }
+    const userCom = {
+        idUserProfile: req.body.idUserProfile,
+        tempoNecesario: req.body.tempoNecesario,
+        periodo: req.body.periodo,
+        funcao: req.body.funcao
+    }
     try {
-        const nusrpfl = await UserProfiles.create(Nome, Email, Senha);
+        const nusrpfl = await UserProfiles.create({userData});
+        console.log(nusrpfl.idUserProfile)
         if (nusrpfl != null) {
-            const ncom = await Convidados.create(TempoNecesario, Periodo, Funcao)
+            const ncom = await Convidados.create({userCom})
             res.json(nusrpfl, ncom)
         }else{
             console.error(error)

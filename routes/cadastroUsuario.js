@@ -15,12 +15,12 @@ router.get('/', async (req, res) => {
 
 // router.post("/", async (req, res) => {
 //     const uspfl = req.body;
-//     const Nome = req.body.Nome
+//     const nome = req.body.nome
 //     const Email = req.body.Email
 //     const Senha = req.body.Senha
 //     const Instituicao = req.body.Instituicao
 //     const Curso = req.body.Curso
-//     const Periodo = req.body.Periodo
+//     const periodo = req.body.periodo
 
 //     try {
 

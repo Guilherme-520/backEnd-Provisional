@@ -6,55 +6,55 @@ const Eventos = db.sequelize.define("Eventos",{
         type: db.Sequelize.INTEGER,
         primaryKey: true
     },
-    Nome:{
+    nome:{
         type: db.Sequelize.STRING
     },
-    Descricao:{
+    descricao:{
         type: db.Sequelize.STRING
     },
-    AsuntoPrincipal:{
+    assuntoPrincipal:{
         type: db.Sequelize.STRING
     },
-    EmailEventos:{
+    emailEventos:{
         type: db.Sequelize.STRING
     },
-    Datainicio :{
+    datainicio :{
         type: db.Sequelize.STRING
     },
-    DataFinal :{
+    dataFinal :{
         type: db.Sequelize.STRING
     },
-    HorarioInicio :{
+    horarioInicio :{
         type: db.Sequelize.STRING
     },
-    HorarioFinal :{
+    horarioFinal :{
         type: db.Sequelize.STRING
     },
-    Manha:{
+    manha:{
         type: db.Sequelize.BOOLEAN
     },
-    Tarde:{  
+    tarde:{  
         type: db.Sequelize.BOOLEAN
     },
-    Noite:{
+    noite:{
         type: db.Sequelize.BOOLEAN
     },
-    Status :{
+    status :{
         type: db.Sequelize.STRING
     },
-    Publico :{
+    publico :{
         type: db.Sequelize.BOOLEAN
     },
-    Formato :{
+    formato :{
         type: db.Sequelize.STRING
     },
-    Proceedings :{
+    proceedings :{
         type: db.Sequelize.BOOLEAN
     },
-    Certificados :{
+    certificados :{
         type: db.Sequelize.BOOLEAN
     },
-    Logo :{
+    logo :{
         type: db.Sequelize.STRING
     },
     idEditorChefe:{

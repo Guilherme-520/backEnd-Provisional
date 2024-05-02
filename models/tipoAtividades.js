@@ -1,10 +1,10 @@
 const db = require("./index")
 
 const TipoAtividades = db.sequelize.define("TipoAtividades", {
-    Nome:{
+    nome:{
         type: db.Sequelize.STRING
     },
-    Descricao:{
+    descricao:{
         type: db.Sequelize.STRING
     }
 })

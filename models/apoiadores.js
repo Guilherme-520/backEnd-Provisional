@@ -1,7 +1,7 @@
 const db = require("./index")
 
 const Apoiadores = db.sequelize.define("Apoiadores",{
-    Nome:{
+    nome:{
        
         type: db.Sequelize.STRING
     },

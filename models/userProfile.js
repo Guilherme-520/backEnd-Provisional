@@ -5,16 +5,16 @@ const UserProfiles = db.sequelize.define("UserProfiles", {
         type: db.Sequelize.INTEGER,
         primaryKey: true
     },
-    Nome:{
+    nome:{
         type: db.Sequelize.STRING
     },
-    Email:{
+    email:{
         type: db.Sequelize.STRING
     },
-    Senha:{
+    senha:{
         type: db.Sequelize.STRING
     },
-    Cargo:{
+    cargo:{
         type: db.Sequelize.STRING
     }
 })
