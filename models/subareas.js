@@ -5,7 +5,7 @@ const SubAreas = db.sequelize.define("SubAreas", {
         type: db.Sequelize.INTEGER,
         primaryKey: true
     },
-    idAreas:{
+    idArea:{
         type: db.Sequelize.INTEGER
     },
     Nome:{
