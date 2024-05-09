@@ -1,7 +1,7 @@
 const db = require("./index")
 
 const AreaConhecimentos = db.sequelize.define("AreaConhecimentos",{
-    idAreaConhecimentos:{
+    idArea:{
         type: db.Sequelize.INTEGER,
         primaryKey: true
     },
