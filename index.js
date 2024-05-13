@@ -36,6 +36,10 @@ const comissao = require('./routes/comissao')
 app.use("/comissao", comissao)
 app.use("/comissao/:id", comissao)
 
+const CorpoEditorial = require('./routes/CorpoEditorial')
+app.use("/CorpoEditorial", CorpoEditorial)
+app.use("/CorpoEditorial/:id", CorpoEditorial)
+
 const editorChefe = require('./routes/editorChefe')
 app.use("/editorChefe", editorChefe)
 app.use("/editorChefe/:id", editorChefe)
