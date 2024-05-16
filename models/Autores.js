@@ -10,7 +10,7 @@ const Autores = db.sequelize.define("Autores", {
     },
     idInstituicoes:{
         type: db.Sequelize.INTEGER,
-    }
+    },
     periodo:{
         type: db.Sequelize.STRING,
         allowNull: false
