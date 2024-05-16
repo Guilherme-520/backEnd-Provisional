@@ -17,8 +17,18 @@ router.get('/:id', async(req, res)=>{
 
 router.post("/", async(req, res)=>{
     const novo = req.body
+    /*
+    const idUserProfile = req.body.idUserProfile
+    const idInstituicoes = req.body.instituicao
+    const periodo = req.body.periodo
+    const apresentador = req.body.apresentador
+    const presenca = req.body.presenca
+    const curso = req.body.curso
+    */
+    
 
     try {
+        //const autor = await Autores.create(periodo,apresentador,presenca,curso)
         const autor = await Autores.create(novo)
         res.json(autor)
     } catch (error) {
@@ -31,7 +41,14 @@ router.post("/", async(req, res)=>{
 router.put("/:id", async(req, res)=>{
     const id = req.params.id;
   const novosDados = req.body;
-
+  /*
+    const idUserProfile = req.body.idUserProfile
+    const idInstituicoes = req.body.instituicao
+    const periodo = req.body.periodo
+    const apresentador = req.body.apresentador
+    const presenca = req.body.presenca
+    const curso = req.body.curso
+    */
   try {
     const autor2 = await Autores.update(novosDados, {
       where: {
