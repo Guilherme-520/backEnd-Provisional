@@ -1,6 +1,6 @@
 const db = require("./index")
 
-const TipoAtividades = db.sequelize.define("TipoAtividades", {
+const CatogoriaArquivos = db.sequelize.define("CatogoriaArquivos", {
     nome:{
         type: db.Sequelize.STRING
     },
@@ -9,4 +9,4 @@ const TipoAtividades = db.sequelize.define("TipoAtividades", {
     }
 })
 
-module.exports = TipoAtividades
+module.exports = CatogoriaArquivos

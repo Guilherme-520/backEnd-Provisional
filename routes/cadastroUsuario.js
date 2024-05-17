@@ -28,11 +28,10 @@ router.post("/", async (req, res) => {
         const nuserpfp = await UserProfiles.create({userprof});
         console.log(nuserpfp.idUserProfile)
         if (userovnt != null) {
-            const novnt = await Convidados.create({userovnt})
-            res.json(nusrpfl, novnt)
+            const novnt = await Ouvintes.create({userovnt})
             if(insti != null){
-                const ninst = await Convidados.create({insti})
-                res.json(nusrpfl, novnt, ninst)
+                const ninst = await Instituicoes.create({insti})
+                res.json(nuserpfp, novnt, ninst)
             }
         }else{
             console.error(error)

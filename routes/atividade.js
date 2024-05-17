@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const Atividades = require('../models/atividade')
+const TipoAtividades = require('../models/categoriaArquivos')
 
 router.get('/', async (req, res) => {
     const ati = await Atividades.findAll();

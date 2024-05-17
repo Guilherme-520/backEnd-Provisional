@@ -1,16 +1,16 @@
 const express = require('express');
 const router = express.Router();
-const tipoArquivo = require('../models/tipoArquivo')
+const categoriaArquivos = require('../models/categoriaArquivos')
 
 router.get('/', async (req, res) => {
-    const arq = await tipoArquivo.findAll();
+    const arq = await categoriaArquivos.findAll();
     res.json(arq)
 });
 
 router.post("/", async (req, res) => {
     const arq = req.body;
     try {
-        const novo = await tipoArquivo.create(arq)
+        const novo = await categoriaArquivos.create(arq)
         res.json(novo);
     } catch (error) {
         console.error(error);
