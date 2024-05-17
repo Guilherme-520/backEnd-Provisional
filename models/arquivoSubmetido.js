@@ -1,30 +1,39 @@
 const db = require('./index');
 
 const Arquivos = db.sequelize.define("Arquivos",{
-    idArquivos:{
+    idArquivSubmetidos:{
         type: db.Sequelize.INTEGER,
         primaryKey: true
     },
-    idCategoriaArquivos:{
+    idCategoriaArquivo:{
         type: db.Sequelize.INTEGER
     },
-    idEventos:{
+    idEvento:{
         type: db.Sequelize.INTEGER
     },
-    normasPublicacao :{
+    titulo :{
         type: db.Sequelize.STRING
     },
-     modeloArquivos:{
+     resumo:{
         type: db.Sequelize.STRING
     },
-    modeloApresentacao:{
+    abstract:{
         type: db.Sequelize.STRING
     },
-    apresentacao:{
-        type: db.Sequelize.BOOLEAN
+    palavrasChaves:{
+        type: db.Sequelize.STRING
     },
-    avaliacao:{
-        type: db.Sequelize.BOOLEAN
+    keyWords:{
+        type: db.Sequelize.STRING
+    },
+    arquivoCompleto:{
+        type: db.Sequelize.STRING
+    },
+    arquivoSemAutoria:{
+        type: db.Sequelize.STRING
+    },
+    status:{
+        type: db.Sequelize.STRING
     }
 })
 

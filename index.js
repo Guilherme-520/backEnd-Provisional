@@ -24,29 +24,30 @@ app.use("/atividade", atividades)
 
 const evento = require('./routes/evento')
 app.use("/evento", evento)
+app.use("/evento:idEvento", evento)
 
 const eventApoiador = require('./routes/eventApoiador')
 app.use("/eventApoiador", eventApoiador)
 
 const ouvinte = require('./routes/ouvinte')
 app.use("/ouvinte", ouvinte)
-app.use("/ouvinte/:id", ouvinte)
+app.use("/ouvinte/:idOuvinte", ouvinte)
 
 const comissao = require('./routes/comissao')
 app.use("/comissao", comissao)
-app.use("/comissao/:id", comissao)
+app.use("/comissao/:idComissao", comissao)
 
 const CorpoEditorial = require('./routes/CorpoEditorial')
 app.use("/CorpoEditorial", CorpoEditorial)
-app.use("/CorpoEditorial/:id", CorpoEditorial)
+app.use("/CorpoEditorial/:idCorpoEditorial", CorpoEditorial)
 
 const editorChefe = require('./routes/editorChefe')
 app.use("/editorChefe", editorChefe)
-app.use("/editorChefe/:id", editorChefe)
+app.use("/editorChefe/:idEditorChefe", editorChefe)
 
 const convidado = require('./routes/convidado')
 app.use("/convidado", convidado)
-app.use("/convidado/:id", convidado)
+app.use("/convidado/:idConvidado", convidado)
 
 const instituicao = require('./routes/instuicao')
 app.use("/instituicao", instituicao)
