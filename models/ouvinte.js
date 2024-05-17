@@ -1,14 +1,17 @@
-
 const db = require("./index")
 
 const Ouvintes = db.sequelize.define("Ouvintes", {
-    Curso:{
+    idOuvinte:{
+        type: db.Sequelize.INTEGER,
+        primaryKey: true
+    },
+    curso:{
         type: db.Sequelize.STRING
     },
-    Curso:{
+    periodo:{
         type: db.Sequelize.STRING
     },
-    Presenca:{
+    presenca:{
         type: db.Sequelize.INTEGER
     },
     idUserProfile:{

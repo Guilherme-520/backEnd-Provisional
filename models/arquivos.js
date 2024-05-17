@@ -11,28 +11,28 @@ const Arquivos = db.sequelize.define("Arquivos",{
     idEvento:{
         type: db.Sequelize.INTEGER
     },
-    InicioSubmisao :{
+    inicioSubmissao :{
         type: db.Sequelize.STRING
     },
-    FinalSubmisao :{
+    finalSubmissao :{
         type: db.Sequelize.STRING
     },
-    InicioAvaliacao :{
+    inicioAvaliacao :{
         type: db.Sequelize.STRING
     },
-    FinalAvaliacao :{
+    finalAvaliacao :{
         type: db.Sequelize.STRING
     },
-    NormasPublicacao :{
+    normasPublicacao :{
         type: db.Sequelize.STRING
     },
-     ModeloArquivos:{
+     modeloArquivos:{
         type: db.Sequelize.STRING
     },
-    ModeloApresentacao:{
+    modeloApresentacao:{
         type: db.Sequelize.STRING
     },
-    Apresentacao:{
+    apresentacao:{
         type: db.Sequelize.BOOLEAN
 
     }

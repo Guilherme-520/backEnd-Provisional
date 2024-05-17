@@ -5,10 +5,10 @@ const Editorchefes = db.sequelize.define("EditorChefes", {
         type: db.Sequelize.INTEGER,
         primaryKey: true
     },
-    LinkLattes:{
+    linkLattes:{
         type: db.Sequelize.STRING
     },
-    Status:{
+    status:{
         type: db.Sequelize.STRING
     },
     idInstituicao:{

@@ -8,10 +8,10 @@ const SubAreas = db.sequelize.define("SubAreas", {
     idArea:{
         type: db.Sequelize.INTEGER
     },
-    Nome:{
+    nome:{
         type: db.Sequelize.STRING
     },
-    Descricao:{
+    descricao:{
         type: db.Sequelize.STRING
     }
     //idAvaliador:{

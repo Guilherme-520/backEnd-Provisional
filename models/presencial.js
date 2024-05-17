@@ -1,20 +1,20 @@
 const db = require("./index")
 
 const Presenciais = db.sequelize.define("Presenciais", {
-    Cep:{
+    cep:{
         type: db.Sequelize.STRING
     },
-    Estado:{
+    estado:{
         type: db.Sequelize.STRING
     },
-    Local:{
+    local:{
         type: db.Sequelize.STRING
     },
-    Cidade:{
+    cidade:{
         type: db.Sequelize.STRING
     },
     idEvento:{
-        type: db.Sequelize.STRING
+        type: db.Sequelize.INTEGER
     }
 })
 

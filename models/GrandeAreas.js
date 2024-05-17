@@ -7,12 +7,12 @@ const GrandeAreas = db.sequelize.define("GrandeAreas",{
     },
     /*GrandeArea:{
         type: db.Sequelize.STRING
-    }
+    }   
     */
-    Nome:{
+    nome:{
         type: db.Sequelize.STRING
     },
-    Descricao:{
+    descricao:{
         type: db.Sequelize.STRING
     }
 
