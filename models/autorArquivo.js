@@ -1,16 +1,16 @@
 const db = require("./index")
 
-const CorpoEditorialEventos = db.sequelize.define("CorpoEditorialEventos", {
-    idCorpoEditorialEventos:{
+const AutorArquivos = db.sequelize.define("AutorArquivos",{
+    idAutorArquivo:{
         type: db.Sequelize.INTEGER,
         primaryKey: true
     },
-    idEventos:{
+    idAutor:{
         type: db.Sequelize.INTEGER
     },
-    idCorpoEditoriais:{
+    idArquivo:{
         type: db.Sequelize.INTEGER
     }
 })
 
-module.exports = CorpoEditorialEventos
+module.exports = AutorArquivos
