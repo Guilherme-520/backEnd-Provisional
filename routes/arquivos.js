@@ -2,7 +2,7 @@ const express  = require('express');
 const router   = express.Router();
 const arquivos = require('../models/arquivos');
 const { json, where, Op } = require('sequelize');
-const tipoArquivos = require('../models/tipoArquivo')
+const tipoArquivos = require('../models/tipoArquivos')
 
 function slugify(string) {
     return string
