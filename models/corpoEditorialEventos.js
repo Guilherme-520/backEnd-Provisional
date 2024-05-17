@@ -1,7 +1,7 @@
 const db = require("./index")
 
 const CorpoEditorialEventos = db.sequelize.define("CorpoEditorialEventos", {
-    idCorpoEditorialEventos:{
+    idCorpoEditorialEventos :{
         type: db.Sequelize.INTEGER,
         primaryKey: true
     },
@@ -12,5 +12,6 @@ const CorpoEditorialEventos = db.sequelize.define("CorpoEditorialEventos", {
         type: db.Sequelize.INTEGER
     }
 })
+
 
 module.exports = CorpoEditorialEventos

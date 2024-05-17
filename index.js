@@ -40,6 +40,10 @@ const CorpoEditorial = require('./routes/CorpoEditorial')
 app.use("/CorpoEditorial", CorpoEditorial)
 app.use("/CorpoEditorial/:id", CorpoEditorial)
 
+const CorpoEditorialEventos = require('./routes/corpoEditorialEventos')
+app.use("/CorpoEditorialEventos", CorpoEditorialEventos)
+app.use("/CorpoEditorialEventos/:id", CorpoEditorialEventos)
+
 const editorChefe = require('./routes/editorChefe')
 app.use("/editorChefe", editorChefe)
 app.use("/editorChefe/:id", editorChefe)
