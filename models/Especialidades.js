@@ -16,10 +16,10 @@ const Especialidades = db.sequelize.define("Especialidades", {
         type: db.Sequelize.INTEGER
     },
     */
-    Nome:{
+    nome:{
         type: db.Sequelize.STRING
     },
-    Descricao:{
+    descricao:{
         type: db.Sequelize.STRING
     }
 })

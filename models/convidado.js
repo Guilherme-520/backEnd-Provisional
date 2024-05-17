@@ -5,7 +5,7 @@ const Convidados = db.sequelize.define("Convidados", {
         type: db.Sequelize.INTEGER,
         primaryKey: true
     },
-    Funcao:{
+    funcao:{
         type: db.Sequelize.STRING
     },
     idUserProfile:{
@@ -14,7 +14,7 @@ const Convidados = db.sequelize.define("Convidados", {
     TempoNecesario:{
         type: db.Sequelize.STRING
     },
-    Periodo:{
+    periodo:{
         type: db.Sequelize.STRING
     }
 })

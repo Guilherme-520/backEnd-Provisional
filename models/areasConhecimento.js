@@ -8,10 +8,10 @@ const AreaConhecimentos = db.sequelize.define("AreaConhecimentos",{
     idGrandeAreas:{
         type: db.Sequelize.INTEGER
     },
-    Nome:{
+    nome:{
         type: db.Sequelize.STRING
     },
-    Descricao:{
+    descricao:{
         type: db.Sequelize.STRING
     },
 

@@ -1,7 +1,7 @@
 const db = require("./index")
 
 const Onlines = db.sequelize.define("Onlines", {
-    Link:{
+    link:{
         type: db.Sequelize.STRING
     },
     idEvento:{

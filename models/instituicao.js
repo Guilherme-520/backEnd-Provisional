@@ -5,7 +5,7 @@ const Instituicoes = db.sequelize.define("Instituicoes", {
         type: db.Sequelize.INTEGER,
         primaryKey: true
     },
-    Nome:{
+    nome:{
         type: db.Sequelize.STRING
     },
     CNPJID:{

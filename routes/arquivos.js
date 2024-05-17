@@ -30,22 +30,22 @@ router.get('/', async (req, res) => {
 });
 
 router.post('/', upload.fields([
-    { name: 'ModeloArquivos'},
-    { name: 'ModeloApresentacao'}
+    { name: 'modeloArquivos'},
+    { name: 'modeloApresentacao'}
 ]),async (req,res)=>{
     const dados = req.body
     const data = {
         
         idEvento:           req.body.idEvento,
         idTipoArquivos:      req.body.idTipoArquivos,
-        InicioSubmisao:    req.body.InicioSubmisao,
-        FinalSubmisao:     req.body.FinalSubmisao,
-        InicioAvaliacao:    req.body.InicioAvaliacao,
-        FinalAvaliacao:     req.body.FinalAvaliacao,
-        NormasPublicacao:   req.body.NormasPublicacao,
-        ModeloArquivos:      req.files.ModeloArquivos[0].path,
-        ModeloApresentacao: req.files.ModeloApresentacao[0].path,
-        Apresentacao:       req.body.Apresentacao,
+        inicioSubmissao:    req.body.inicioSubmissao,
+        finalSubmissao:     req.body.finalSubmissao,
+        inicioAvaliacao:    req.body.inicioAvaliacao,
+        finalAvaliacao:     req.body.finalAvaliacao,
+        normasPublicacao:   req.body.normasPublicacao,
+        modeloArquivos:      req.files.modeloArquivos[0].path,
+        modeloApresentacao: req.files.modeloApresentacao[0].path,
+        apresentacao:       req.body.apresentacao,
     }
 
     res.json(data)

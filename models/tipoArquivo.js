@@ -5,10 +5,10 @@ const tipoArquivos = db.sequelize.define("TipoArquivos", {
         type: db.Sequelize.INTEGER,
         primaryKey: true
     },
-    Nome:{
+    nome:{
         type: db.Sequelize.STRING
     },
-    Descricao:{
+    descricao:{
         type: db.Sequelize.TEXT
     }
 })
