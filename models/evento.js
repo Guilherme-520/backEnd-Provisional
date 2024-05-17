@@ -1,4 +1,4 @@
-const { FOREIGNKEYS } = require('sequelize/lib/query-types');
+
 const db = require('./index');
 
 const Eventos = db.sequelize.define("Eventos",{
@@ -59,6 +59,24 @@ const Eventos = db.sequelize.define("Eventos",{
     },
     idEditorChefe:{
         type: db.Sequelize.INTEGER
+    },
+    inicioSubmissao:{
+        type: db.Sequelize.STRING
+    },
+    finalSubmissao:{
+        type: db.Sequelize.STRING
+    },
+    limiteArquivosAutores:{
+        type: db.Sequelize.INTEGER
+    },
+    limiteAutores:{
+        type: db.Sequelize.INTEGER
+    },
+    limiteAvaliadores:{
+        type: db.Sequelize.INTEGER
+    },
+    modeloApresentacao:{
+        type: db.Sequelize.STRING
     }
 })
 

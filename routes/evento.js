@@ -18,4 +18,38 @@ router.post("/", async (req, res) => {
     }
 });
 
+router.put('/:idEvento', async (req, res) => {
+    const { idEvento } = req.params;
+    const { 
+        inicioSubmissao, 
+        finalSubmissao, 
+        limiteArquivosAutores, 
+        limiteAutores, 
+        limiteAvaliadores, 
+        modeloApresentacao 
+    } = req.body;
+
+    try {
+        const evento = await Eventos.findByPk(idEvento);
+
+        if (!evento) {
+            return res.status(404).json({ error: 'Evento não encontrado' });
+        }
+
+        await evento.update({
+            inicioSubmissao,
+            finalSubmissao,
+            limiteArquivosAutores,
+            limiteAutores,
+            limiteAvaliadores,
+            modeloApresentacao
+        });
+
+        res.json(evento);
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ error: 'Erro ao atualizar Evento: ' + error.message });
+    }
+});
+
 module.exports = router;
