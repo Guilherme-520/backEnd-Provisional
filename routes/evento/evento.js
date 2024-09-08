@@ -5,7 +5,7 @@ const multer = require('multer');
 const path = require('path');
 const fs = require('fs');
 
-// Função para garantir que o diretório existe
+// Função para garantir que o diretório exista
 const ensureDirExists = (dir) => {
     if (!fs.existsSync(dir)) {
         fs.mkdirSync(dir, { recursive: true });
@@ -24,19 +24,12 @@ function slugify(string) {
         .replace(/-+$/, ''); // Remove hífen no final
 }
 
-const getYearMonth = () => {
-    const date = new Date();
-    const year = date.getFullYear();
-    const month = String(date.getMonth() + 1).padStart(2, '0'); // Adiciona zero à esquerda se necessário
-    return `${year}-${month}`;
-};
-
 const storage = multer.diskStorage({
     destination: function (req, file, cb) {
-        const nomeEvento = getYearMonth(); // Usa ano e mês no nome do evento
+        const nomeEvento = slugify(req.params.nomeURL); // Usa apenas o nomeURL normalizado
         const eventDirLogo = path.join('uploads', nomeEvento, 'logo');
         const eventDirArquivos = path.join('uploads', nomeEvento, 'arquivos');
-        
+
         // Cria os diretórios se não existirem
         ensureDirExists(eventDirLogo);
         ensureDirExists(eventDirArquivos);
@@ -44,8 +37,10 @@ const storage = multer.diskStorage({
         // Define o diretório com base no campo do arquivo (logo ou arquivos)
         if (file.fieldname === 'logo') {
             cb(null, eventDirLogo);
-        } else {
+        } else if (file.fieldname === 'ModeloArquivos' || file.fieldname === 'ModeloApresentacao') {
             cb(null, eventDirArquivos);
+        } else {
+            cb(new Error('Campo de arquivo desconhecido'));
         }
     },
     filename: function (req, file, cb) {
@@ -57,14 +52,14 @@ const storage = multer.diskStorage({
 
 const upload = multer({ storage: storage });
 
-router.post('/', upload.fields([{ name: 'logo' }]), async (req, res) => {
+router.post('/:nomeURL', upload.fields([{ name: 'logo' }]), async (req, res) => {
     try {
         const editorChefe = await EditorChefes.findOne({ where: { idUserProfiles: req.user.id } });
         if (!editorChefe) {
             return res.status(404).json({ message: 'Editor chefe não encontrado.' });
         }
 
-        const url = slugify(req.body.nome)
+        const url = slugify(req.body.nome);
 
         const data = {
             idEditorChefes: editorChefe.id,
@@ -78,13 +73,13 @@ router.post('/', upload.fields([{ name: 'logo' }]), async (req, res) => {
             certificados: req.body.certificados,
             formato: req.body.formato,
             // Logo será opcional, pode ser descomentada conforme necessário:
-            // logo: req.files.logo ? req.files.logo[0].path : null
+            logo: req.files.logo ? req.files.logo[0].path : null
         };
 
         // Criação do evento
-       const event = await Eventos.create(data);
+        const event = await Eventos.create(data);
 
-       // Criação dos Apoiadores
+        // Criação dos Apoiadores
         const apoaId = [];
         if (req.body.apoiadores && Array.isArray(req.body.apoiadores)) {
             for (let i = 0; i < req.body.apoiadores.length; i++) {
@@ -111,13 +106,14 @@ router.post('/', upload.fields([{ name: 'logo' }]), async (req, res) => {
         }
 
         // Associação dos Apoiadores ao evento
-        for (let index = 0; index < apoaId.length; index++) {
+        for (let index = 0; i < apoaId.length; i++) {
             await EventApoiadores.create({
                 idApoiadores: apoaId[index],
                 idEventos: event.id
             });
         }
 
+        res.status(200).json({ message: 'Evento criado com sucesso!' });
 
     } catch (error) {
         console.error('Erro ao criar evento:', error);
@@ -252,25 +248,25 @@ router.post('/:nomeURL/arquivos', upload.fields([
             limiteArquivosAutores: req.body.limiteArquivosAutores,
             limitesAutores: req.body.limitesAutores,
             limiteAvaliadores: req.body.limiteAvaliadores,
-            modeloApresentacao: req.files.ModeloApresentacao[0].path,
-
+            modeloApresentacao: req.files.ModeloApresentacao ? req.files.ModeloApresentacao[0].path : null
         };
 
         await Eventos.update(dataEvent, { where: { id: event.id } });
 
-        const datArquivos = {
-            modeloArquivo: req.files.ModeloArquivos[0].path,
+        const dataArquivos = {
             normasPublicacaos: req.body.normasPublicacaos,
             avalicao: req.body.avalicao,
             reenvio: req.body.reenvio,
             apresentacao: req.body.apresentacao,
             idEventos: event.id,
-            idCategoriaArquivos: req.body.idCategoriaArquivos
+            idCategoriaArquivos: req.body.idCategoriaArquivos,
+            modeloArquivo: req.files.ModeloArquivos ? req.files.ModeloArquivos[0].path : null,
         };
 
-        await Arquivos.create(datArquivos);
+        await Arquivos.create(dataArquivos);
 
         res.status(200).json({ message: 'Arquivos e dados do evento atualizados com sucesso!' });
+
     } catch (error) {
         console.error('Erro ao processar arquivos e dados do evento:', error);
         res.status(500).json({ error: 'Erro ao processar arquivos e dados do evento: ' + error.message });

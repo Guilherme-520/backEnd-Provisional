@@ -13,6 +13,9 @@ app.use('/auth', authRoutes);
 const evento = require('./routes/evento/evento');
 app.use('/evento/cadastro', authMiddleware(['Editor Chefe']), evento );
 
+const download = require('./routes/artigo/download')
+app.use('/download',authMiddleware(['Avaliador', 'Editor Chefe', 'Convidado', 'Chair', 'Organizador', 'Autor', 'Ouvinte']), download )
+
 const CategoriaArquivos = require('./routes/evento/categoriaArquivo');
 app.use('/evento/categoriaArquivos', authMiddleware(['Editor Chefe']), CategoriaArquivos );
 

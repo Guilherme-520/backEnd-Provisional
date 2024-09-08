@@ -333,10 +333,10 @@ const Presenciais = sequelize.define('Presenciais', {
       key: 'id'
     }
   },
-  cep : { type: DataTypes.STRING, allowNull: false },
-  estado : { type: DataTypes.STRING, allowNull: false },
-  local : { type: DataTypes.STRING, allowNull: false },
-  cidade : { type: DataTypes.STRING, allowNull: false }
+  cep : { type: DataTypes.STRING, allowNull: true },
+  estado : { type: DataTypes.STRING, allowNull: true },
+  local : { type: DataTypes.STRING, allowNull: true },
+  cidade : { type: DataTypes.STRING, allowNull: true }
 });
 
 
