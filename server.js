@@ -13,6 +13,15 @@ app.use('/auth', authRoutes);
 const evento = require('./routes/evento/evento');
 app.use('/evento/cadastro', authMiddleware(['Editor Chefe']), evento );
 
+const cadastroComissao = require('./routes/cadastros/cadastroComissao');
+app.use('/cadastroComissao', cadastroComissao );
+
+const cadastroConvidado = require('./routes/cadastros/cadastrarConvidado');
+app.use('/cadastroConvidado', cadastroConvidado );
+
+const cadastroOuvinte = require('./routes/cadastros/cadastrarOuvinte');
+app.use('/cadastroOuvinte', cadastroOuvinte );
+
 const download = require('./routes/artigo/download')
 app.use('/download',authMiddleware(['Avaliador', 'Editor Chefe', 'Convidado', 'Chair', 'Organizador', 'Autor', 'Ouvinte']), download )
 
