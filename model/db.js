@@ -367,6 +367,165 @@ const Arquivos = sequelize.define('Arquivos', {
   reenvio: { type: DataTypes.BOOLEAN, allowNull: true }
 });
 
+const ArquivoSubmetidos = sequelize.define('ArquivoSubmetidos', {
+  idCategoriaArquivos: {
+    type: DataTypes.INTEGER,
+    references: {
+      model: CategoriaArquivos,
+      key: 'id'
+    }
+  },
+  idEventos: {
+    type: DataTypes.INTEGER,
+    references: {
+      model: Eventos,
+      key: 'id'
+    }
+  },
+
+  titulo:  { type: DataTypes.STRING, allowNull: false },
+  resumo:  { type: DataTypes.STRING, allowNull: true },
+  bastract:  { type: DataTypes.STRING, allowNull: true },
+  palavrasChaves:  { type: DataTypes.STRING, allowNull: true },
+  keyWords:  { type: DataTypes.STRING, allowNull: true },
+  arquivoCompleto:  { type: DataTypes.STRING, allowNull: true },
+  arquivoSemAutoria:  { type: DataTypes.STRING, allowNull: true },
+  status:  { type: DataTypes.BOOLEAN, allowNull: true },
+
+});
+
+const Avaliacoes = sequelize.define('Avaliacoes', {
+  idArquivosSubmetidos: {
+    type: DataTypes.INTEGER,
+    references: {
+      model: ArquivoSubmetidos,
+      key: 'id'
+    }
+  },
+  idAvaliadores: {
+    type: DataTypes.INTEGER,
+    references: {
+      model: Avaliadores,
+      key: 'id'
+    }
+  },
+
+  comentarioOrg: { type: DataTypes.TEXT, allowNull: false },
+  comentarioAluno: { type: DataTypes.TEXT, allowNull: false },
+  reenvio: { type: DataTypes.BOOLEAN, allowNull: false },
+  media: { type: DataTypes.FLOAT, allowNull: false },
+  dataAvaliacao: { type: DataTypes.DATE, allowNull: false },
+  notaTema: { type: DataTypes.INTEGER, allowNull: false },
+  notaObjetivos: { type: DataTypes.INTEGER, allowNull: false },
+  notaRevisaoLeitura: { type: DataTypes.INTEGER, allowNull: false },
+  notaConsistencia: { type: DataTypes.INTEGER, allowNull: false },
+  notaMetodoPesquisa: { type: DataTypes.INTEGER, allowNull: false },
+  notaAnaliseResultados: { type: DataTypes.INTEGER, allowNull: false },
+  notaConclusoes: { type: DataTypes.INTEGER, allowNull: false },
+  notaContribuicaoCientifica: { type: DataTypes.INTEGER, allowNull: false },
+  notaRedacaoOrganizacao: { type: DataTypes.INTEGER, allowNull: false }
+
+
+});
+
+const AutorArquivos = sequelize.define('AutorArquivos', {
+  idAutor: {
+    type: DataTypes.INTEGER,
+    references: {
+      model: Autores,
+      key: 'id'
+    }
+  },
+  idArquivo: {
+    type: DataTypes.INTEGER,
+    references: {
+      model: ArquivoSubmetidos,
+      key: 'id'
+    }
+  },
+});
+
+const ArquivoEspecialidades = sequelize.define('ArquivoEspecialidades', {
+  idArquivo: {
+    type: DataTypes.INTEGER,
+    references: {
+      model: ArquivoSubmetidos,
+      key: 'id'
+    }
+  },
+
+  idEspecialidades: {
+    type: DataTypes.INTEGER,
+    references: {
+      model: Especialidades,
+      key: 'id'
+    }
+  },
+});
+
+const RespostasAvaliacoes = sequelize.define('RespostasAvaliacoes', {
+  idAvaliadores: {
+    type: DataTypes.INTEGER,
+    references: {
+      model: Avaliadores,
+      key: 'id'
+    }
+  },
+  idArquivosSubmetidos: {
+    type: DataTypes.INTEGER,
+    references: {
+      model: ArquivoSubmetidos,
+      key: 'id'
+    }
+  },
+
+  respostas: { type: DataTypes.STRING, allowNull: false }
+});
+
+const EventoAvaliadores = sequelize.define('EventoAvaliadores', {
+  idEventos: {
+    type: DataTypes.INTEGER,
+    references: {
+      model: Eventos,
+      key: 'id'
+    }
+  },
+
+  idAvaliadores: {
+    type: DataTypes.INTEGER,
+    references: {
+      model: Avaliadores,
+      key: 'id'
+    }
+  },
+
+});
+
+const CertificadosAvaliadores = sequelize.define("CertificadosAvaliadores", {
+  idArquivosSubmetidos: {
+    type: DataTypes.INTEGER,
+    references: {
+      model: ArquivoSubmetidos,
+      key: "id",
+    },
+  },
+  idAvaliadores: {
+    type: DataTypes.INTEGER,
+    references: {
+      model: Avaliadores,
+      key: "id",
+    },
+  },
+
+  certificado: { type: DataTypes.STRING, allowNull: false },
+  dataEmissao: { type: DataTypes.DATE, allowNull: false },
+  hash: { type: DataTypes.STRING, allowNull: false }
+});
+
+
+
+
+
 UserProfile.belongsToMany(Cargo, { through: UserCargo, foreignKey: 'idUserProfiles' });
 Cargo.belongsToMany(UserProfile, { through: UserCargo, foreignKey: 'idCargo' });
 
@@ -374,4 +533,4 @@ Cargo.belongsToMany(UserProfile, { through: UserCargo, foreignKey: 'idCargo' });
 sequelize.sync();
 
 // Não esqueçam
-module.exports = { UserProfile, Cargo, Token, UserCargo, Instituicoes, EditorChefes, Eventos, Ouvintes, Areas, subAreas, GrandeAreas, AvaliadorSubAreas, Especialidades, CorpoEditoriais, CorpoEditorialEventos, Apoiadores, EventApoiadores, Onlines, Presenciais, CategoriaArquivos, Arquivos, Convidados, Autores, Comissoes, Avaliadores, sequelize };
+module.exports = {CertificadosAvaliadores,  EventoAvaliadores, RespostasAvaliacoes, ArquivoEspecialidades, AutorArquivos, ArquivoSubmetidos, Avaliacoes, UserProfile, Cargo, Token, UserCargo, Instituicoes, EditorChefes, Eventos, Ouvintes, Areas, subAreas, GrandeAreas, AvaliadorSubAreas, Especialidades, CorpoEditoriais, CorpoEditorialEventos, Apoiadores, EventApoiadores, Onlines, Presenciais, CategoriaArquivos, Arquivos, Convidados, Autores, Comissoes, Avaliadores, sequelize };
