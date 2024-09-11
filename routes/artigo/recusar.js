@@ -1,28 +1,28 @@
+// recusarAvaliacao.js
 const express = require('express');
 const router = express.Router();
-const { Avaliadores } = require("../../model/db");
-
-// Rota para o avaliador recusar a avaliação de um artigo
-router.post('/:idAvaliador/recusar/:idArquivo', async (req, res) => {
+const { Eventos } = require("../../model/db");
+//necessito saber qual status na tabela deve ser alterado
+// Rota para o avaliador recusar o evento
+router.post('/:idEventos/recusar', async (req, res) => {
     try {
-        const { idAvaliador, idArquivo } = req.params;
+        const { idEventos } = req.params;
 
-        // Buscar o registro de avaliação do avaliador para o artigo pelo ID
-        const avaliador = await Avaliadores.findOne({ where: { id: idAvaliador, idArquivos: idArquivo } });
+        // Buscar o evento e definir o campo 'aceito' como falso (0)
+        const evento = await Eventos.findByPk(idEventos);
 
-        if (!avaliador) {
-            return res.status(404).json({ message: 'Avaliação não encontrada' });
+        if (!evento) {
+            return res.status(404).json({ message: 'Evento não encontrado' });
         }
 
-        // Atualizar o status da avaliação para "Recusado", afeta os status de Avaliador
-        avaliador.status = 'Recusado';
-        await avaliador.save();
+        evento.aceito = 0; // Definindo o evento como não aceito
+        await evento.save();
 
-        res.json({ message: 'Avaliação recusada com sucesso!' });
+        res.json({ message: 'Evento recusado com sucesso!' });
 
     } catch (error) {
-        console.error('Erro ao recusar a avaliação:', error);
-        res.status(500).json({ message: 'Erro ao recusar a avaliação' });
+        console.error('Erro ao recusar o evento:', error);
+        res.status(500).json({ message: 'Erro ao recusar o evento' });
     }
 });
 
