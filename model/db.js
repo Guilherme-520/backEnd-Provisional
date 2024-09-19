@@ -215,7 +215,7 @@ const Chairs = sequelize.define('Chairs', {
   idInstituicao: {
     type: DataTypes.INTEGER,
     references: {
-      model: LinkedInuicoes,
+      model: Instituicoes,
       key: 'id'
     }
   },
@@ -281,7 +281,7 @@ const Especialidades = sequelize.define('Especialidades', {
   idSubAreas: {
     type: DataTypes.INTEGER,
     references: {
-      model: subAreas,
+      model: SubAreas,
       key: 'id'
     }
   },
