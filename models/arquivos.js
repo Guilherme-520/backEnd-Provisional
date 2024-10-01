@@ -1,31 +1,75 @@
 const db = require('./index');
 
-const Arquivos = db.sequelize.define("Arquivos",{
-    idArquivos:{
-        type: db.Sequelize.INTEGER,
-        primaryKey: true
+const evento = db.sequelize.define("arquivos",{
+    tipoArquivo:{
+        type: db.Sequelize.STRING
     },
-    idCategoriaArquivos:{
+    dataIniSub:{
+        type: db.Sequelize.DATE
+    },
+    
+    dataFinSub:{
+        type: db.Sequelize.DATE
+    },
+    dataIniAva:{
+        type: db.Sequelize.DATE
+    },
+    dataFinAva:{
+        type: db.Sequelize.DATE
+    },
+    normas:{
+        type: db.Sequelize.TEXT
+    },
+    tipoUsuario:{
+        type: db.Sequelize.STRING
+    },
+    area:{
+        type: db.Sequelize.STRING
+    },
+    modArquivo:{
+        type: db.Sequelize.BLOB
+    },
+    modApresentacao:{
+        type: db.Sequelize.BLOB
+    },
+    plusArquivo:{
+        type: db.Sequelize.BLOB
+    },
+    notaTema:{
         type: db.Sequelize.INTEGER
     },
-    idEventos:{
+    notaObjetivo:{
         type: db.Sequelize.INTEGER
     },
-    normasPublicacao :{
+    notaRevisao:{
+        type: db.Sequelize.INTEGER
+    },
+    notaConsistencia:{
+        type: db.Sequelize.INTEGER
+    },
+    notaMetodo:{
+        type: db.Sequelize.INTEGER
+    },
+    notaAnalise:{
+        type: db.Sequelize.INTEGER
+    },
+    notaConclusao:{
+        type: db.Sequelize.INTEGER
+    },
+    notaContribuicao:{
+        type: db.Sequelize.INTEGER
+    },
+    notaOrganizacao:{
+        type: db.Sequelize.INTEGER
+    },
+    comentarioOrganizador:{
         type: db.Sequelize.STRING
     },
-     modeloArquivos:{
+    comentarioAutor:{
         type: db.Sequelize.STRING
     },
-    modeloApresentacao:{
-        type: db.Sequelize.STRING
-    },
-    apresentacao:{
-        type: db.Sequelize.BOOLEAN
-    },
-    avaliacao:{
-        type: db.Sequelize.BOOLEAN
-    }
+    
+
 })
 
-module.exports = Arquivos;
+module.exports = arquivos;
