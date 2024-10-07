@@ -1,6 +1,8 @@
 const express = require('express');
 const jwt = require('jsonwebtoken');
 const bcrypt = require('bcryptjs');
+const { Op } = require('sequelize');
+
 const { UserProfile, Token, Cargo, Instituicoes, EditorChefes } = require("../../model/db");
 
 const router = express.Router();
@@ -20,6 +22,20 @@ router.post('/register', async (req, res) => {
     return res.status(400).json({ message: `Invalid cargo: ${invalidcargo.join(', ')}` });
   }
 
+  // Verificar se o usuário já existe pelo email ou CPF
+  const existingUser = await UserProfile.findOne({
+    where: {
+      [Op.or]: [
+        { email },
+        { cpf }
+      ]
+    }
+  });
+
+  if (existingUser) {
+    return res.status(400).json({ message: 'User already registered with this email or CPF' });
+  }
+
   const hashedsenha = await bcrypt.hash(senha, 10);
 
   try {
@@ -27,7 +43,7 @@ router.post('/register', async (req, res) => {
 
     // Buscar cargos no banco
     const roleRecords = await Cargo.findAll({ where: { cargo: cargos } });
-    console.log(roleRecords)
+    console.log(roleRecords);
 
     if (roleRecords.length === 0) {
       return res.status(400).json({ message: 'No valid roles found' });
@@ -35,7 +51,7 @@ router.post('/register', async (req, res) => {
 
     // Associar cargos ao usuário
     await user.addCargo(roleRecords);
-    console.log(user.addCargo(roleRecords))
+    console.log(user.addCargo(roleRecords));
 
     res.status(201).json({ message: 'User registered successfully' });
   } catch (error) {
