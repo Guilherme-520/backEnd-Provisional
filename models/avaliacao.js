@@ -7,7 +7,6 @@ const evento = db.sequelize.define("avaliacao",{
     ComentarioAluno:{
         type: db.Sequelize.DATE
     },
-    
     reenvio:{
         type: db.Sequelize.BOOLEAN
     },
